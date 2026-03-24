@@ -1,0 +1,33 @@
+{
+  "name": "esf-automation-agent",
+  "version": "2.0.0",
+  "description": "Playwright Browser Agent — Multi-language E2E Test Generator with configurable locator patterns",
+  "main": "server/index.js",
+  "scripts": {
+    "setup":        "npm install && cd client && npm install",
+    "start":        "concurrently -n \"SERVER,CLIENT\" -c \"cyan.bold,yellow.bold\" \"npm run server\" \"npm run client\"",
+    "server":       "nodemon server/index.js",
+    "client":       "cd client && npx vite --port 3002",
+    "build":        "cd client && npx vite build",
+    "start:prod":   "npm run build && NODE_ENV=production node server/index.js",
+    "install:browsers": "npx playwright install chromium"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.3",
+    "playwright":         "^1.44.0",
+    "axios":              "^1.7.7",
+    "cors":               "^2.8.5",
+    "dotenv":             "^16.4.5",
+    "express":            "^4.21.1",
+    "express-rate-limit": "^7.4.1",
+    "helmet":             "^8.0.0",
+    "morgan":             "^1.10.0",
+    "multer":             "^1.4.5-lts.1",
+    "xlsx":               "^0.18.5"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "nodemon":      "^3.1.7"
+  },
+  "engines": { "node": ">=18.0.0" }
+}
