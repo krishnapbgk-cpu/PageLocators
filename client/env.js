@@ -1,0 +1,5 @@
+
+export default {
+  ANTHROPIC_API_KEY: 'sk-ant-api03-',
+  PORT: 3002
+};
